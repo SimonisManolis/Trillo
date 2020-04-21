@@ -1,0 +1,211 @@
+////////////////////////////////////////////
+//LOGO
+.logo {
+    margin-left: 2rem;
+    height: 3.25rem;
+}
+
+////////////////////////////////////////////
+//SEARCH
+.search{
+    font-size: inherit;
+    color: inherit;
+    height: 4rem;
+    flex: 0 0 40%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__input{
+        width: 90%;
+        font-family: inherit;
+        color: inherit;
+        font-size: inherit;
+        margin-right: -3.5rem;
+        border-radius: 100px;
+        background-color: var(--color-grey-light-2);
+        transition: all .2s;
+        padding: .7rem 2rem;
+        border: none;
+
+        &:focus{
+            width: 100%;
+            outline: none;
+            background-color: var(--color-grey-light-3);
+        }
+
+        &::-webkit-input-placeholder{
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+        }
+    }
+
+    &__input:focus + &__button {
+        background-color: var(--color-grey-light-3);
+    }
+
+    &__button{
+        border: none;
+        background-color: var(--color-grey-light-2);
+
+        &:focus{
+            outline: none;
+        }
+
+        &:active{
+            transform: translateY(2px);
+        }
+    }
+
+    &__icon{
+        width: 2rem;
+        height: 2rem;
+        fill: var(--color-grey-dark-3);
+    }
+}
+
+
+////////////////////////////////////////////
+//USER NAVIGATION
+.user-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //height: 100%;
+    align-self: stretch; // to take 100% height
+
+    & > *{
+        padding: 1.5rem;
+        height: 100%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            background-color: var(--color-grey-light-3);
+        }
+    }
+
+    
+
+    &__icon-box{
+        //text-align: center;
+        position: relative;
+        
+    }
+
+    &__icon{
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    &__notification{
+        position: absolute;
+        top: 1.7rem;
+        right: .6rem;
+        background-color: var(--color-primary);
+        color: white;
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+   
+
+    &__user-photo{
+        height: 3.75rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+
+    &__user-name{
+        color: var(--color-grey-dark-1);
+    }
+}
+
+////////////////////////////////////////////
+//SIDE BAR
+
+.side-nav{
+    margin-top: 3.5rem;
+    list-style: none;
+
+    &__item{
+      //  display: flex;
+       // align-items: center;
+        position: relative;
+
+        &:not(:last-child){
+            margin-bottom: 2rem;
+        }
+        
+
+       &::before{
+           content: "";
+           position: absolute;
+           top: 0;
+           left: 0;
+           height: 100%;
+           width: 3px;
+           background-color: var(--color-primary);
+           transform: scaleY(0);
+           transition: transform .2s, 
+                        width .4s .2s,
+                        background-color .1s;
+
+       }
+    }
+
+    &__item:hover::before,
+    &__item--active::before{
+        width: 100%;
+        transform: scaleY(1);
+    }
+
+    &__item:active::before{
+        background-color: var(--color-primary-light);
+    }
+
+    &__link{
+
+       
+
+        &:link,
+        &:visited{
+            display: block;
+            padding: 1.5rem 3rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--color-grey-light-1);
+            z-index: 10;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__icon{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 2rem;
+        fill: currentColor; //parent's color
+    }
+}
+
+.legal{
+    font-size: 1.4rem;
+    color: var(--color-grey-dark-3);
+    padding: 1rem;
+    text-align: center;
+}
+
+
+
