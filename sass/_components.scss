@@ -17,6 +17,12 @@
     justify-content: center;
     align-items: center;
 
+    @media only screen and (max-width: $bk-smallest){
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input{
         width: 90%;
         font-family: inherit;
@@ -136,13 +142,28 @@
     margin-top: 3.5rem;
     list-style: none;
 
+    @media only screen and (max-width: $bk-medium){
+        display: flex;
+        margin: 0;
+    }
+
     &__item{
       //  display: flex;
        // align-items: center;
         position: relative;
 
+    @media only screen and (max-width: $bk-medium){
+        flex: 1;
+    }
+
+    
+
         &:not(:last-child){
             margin-bottom: 2rem;
+
+            @media only screen and (max-width: $bk-medium){
+                margin-bottom: 0;  
+            }
         }
         
 
@@ -189,6 +210,21 @@
             position: relative;
             display: flex;
             align-items: center;
+
+            @media only screen and (max-width: $bk-medium){
+                justify-content: center;
+            }
+
+            @media only screen and (max-width: $bk-small){
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                font-size: 1.5rem;
+            }
+
+            @media only screen and (max-width: $bk-smallest){
+                padding: 1rem;
+                font-size: 1.3rem;
+            }
         }
     }
 
@@ -197,6 +233,13 @@
         height: 2.5rem;
         margin-right: 2rem;
         fill: currentColor; //parent's color
+
+        @media only screen and (max-width: $bk-small){
+            width: 1.8rem;
+            height: 1.8rem;
+            margin-right: 0;
+            margin-bottom: .7rem;
+        }
     }
 }
 
@@ -205,6 +248,10 @@
     color: var(--color-grey-dark-3);
     padding: 1rem;
     text-align: center;
+
+    @media only screen and (max-width: $bk-medium){
+        display: none;   
+    }
 }
 
 ////////////////////////////////////////////
@@ -212,9 +259,7 @@
 
 .gallery{
     display: flex;
-    &__item{
-
-    }
+    
 
     &__photo{
         width: 100%;
@@ -236,6 +281,11 @@
         font-size: 2.4rem;
         font-weight: 700;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bk-smallest){
+            padding: .7rem 1.4rem;
+            font-size: 1.5rem;
+        }
     }
 
     &__stars{
@@ -249,6 +299,11 @@
         width: 1.75rem;
         height: 1.75rem;
         fill: var(--color-primary);
+
+        @media only screen and (max-width: $bk-smallest){
+            width: 1.4rem;
+            height: 1.4rem;
+        }
     }
 
     &__icon-location{
@@ -260,6 +315,10 @@
         font-weight: 700;
         display: flex;
         margin-right: 2rem;
+
+        @media only screen and (max-width: $bk-smallest){
+            font-size: 1rem;
+        }
 
     }
 
@@ -278,12 +337,20 @@
     &__rating-average{
         font-size: 2.25rem;
         font-weight: 300;
-        margin-bottom: -3px;
+        margin-bottom: 3px;
+
+        @media only screen and (max-width: $bk-smallest){
+            font-size: 1.5rem;
+        }
     }
 
     &__rating-count{
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bk-smallest){
+            font-size: .5rem;
+        }
     }
 }
 
@@ -407,7 +474,7 @@
     }
 
     &__friends{
-
+        display: flex;
     }
 
     &__photo{
@@ -432,6 +499,11 @@
     box-shadow: var(--shadow-light);
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width: $bk-medium){
+        padding: 2rem;
+        margin-bottom: 2.5rem;   
+    }
 
     &__text{
         margin-bottom: 2rem;
@@ -485,5 +557,76 @@
     }
 }
 
+////////////////////////////////////////////
+//CALL TO ACTION 
+.cta{
+    padding: 3.5rem 0;
+    background-color: #fff;
+    text-align: center;
+
+    @media only screen and (max-width: $bk-medium){
+        padding: 2.5rem 0;   
+    }
+
+    &__book-now{
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        margin-bottom: 2.5rem;
+    }
+}
+
+
+////////////////////////////////////////////
+//BTN
+
+.btn{
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    border-radius: 100px;
+    position: relative;
+    overflow: hidden;
+    
+    &:hover{
+        background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+    }
+    &:hover &__visible{
+        transform: translateY(100%);
+    } 
+
+    &:hover &__invisible{
+        top: 0;
+    }
+
+    &__visible{
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        padding: 2.5rem 7.5rem;
+        transition: all .2s;
+    }
+
+    &__invisible{
+        display: inline-block;
+        position: absolute;
+        top: -100%;
+        left:0;
+        height: 100%;
+        width: 100%;
+        padding: 2.5rem 0;
+        transition: all .2s;
+
+    }
+
+    &:focus{
+        animation: pulsate 1s infinite;
+        outline: none;
+    }
+}
 
 
